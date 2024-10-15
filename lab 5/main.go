@@ -14,15 +14,32 @@ type userdata struct {
 }
 
 func main() {
+
+	userinfo := map[int]string{
+
+		1: "Leon Scott Kennedy",
+		2: "Luis Sierra",
+		3: "John Silver",
+		4: "Luis Topez",
+	}
+
+	balanceinfo := map[string]int{
+
+		"Leon Scott Kennedy": 6
+		"Luis Sierra":        ,
+		"John Silver":        "John Silver",
+		"Luis Topez":         "Luis Topez",
+	}
+
 	var persons []userdata
 
 	fmt.Println("---------------------")
-	fmt.Println("Консольна програма - Універсалич 1.0 ")
+	fmt.Println("Simple ATM Simulation")
 	fmt.Println("---------------------")
 
 	reader := bufio.NewReader(os.Stdin)
 	for {
-		fmt.Print("-> ")
+		fmt.Print(">>> ")
 		text, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Println("Вхідна помилка:", err)
@@ -36,7 +53,7 @@ func main() {
 		switch text {
 		case "/testcase":
 
-			fmt.Println("hello, Yourself")
+			fmt.Println("Успішна перевірка команди, продовжуйте")
 
 			if err != nil {
 				fmt.Println("кейс /testcase не працює :(")
@@ -83,11 +100,11 @@ func main() {
 
 			fmt.Println("Реєстрація виконана успішно!")
 
-		case "/Closing":
+		case "@Closing":
 			fmt.Println("Закриття программи..")
 			os.Exit(0)
 
-		case "/Printing-a-check":
+		case "@Printing-a-check":
 			f, err := os.Create("PrintedCheck_.txt")
 			if err != nil {
 				fmt.Println(err)
@@ -107,7 +124,7 @@ func main() {
 				return
 			}
 
-		case "/Pay":
+		case "@Pay":
 			fmt.Println("#:")
 			fmt.Print("Введіть суму для поповнення: ")
 			sumText, err := reader.ReadString('\n')
@@ -129,9 +146,9 @@ func main() {
 			}
 			fmt.Println("Поповнення виконано успішно!")
 
-		case "/List":
+		case "@List":
 			for i, person := range persons {
-				fmt.Printf("Користувач %d:\n", i+1)
+				fmt.Printf("Користувач %d:\n", i+1, 1)
 				fmt.Printf("Номер карти: %s\n", person.Name)
 				fmt.Printf("ПІН: %d\n", person.Pin)
 				if err != nil {
@@ -140,17 +157,22 @@ func main() {
 				}
 			}
 
-		case "/Help":
+		case "@Help":
 			fmt.Println("Команди: \r\n")
 			fmt.Println("------------------------------------------")
-			fmt.Println("/testcase - демонстрація тестового кейсу")
-			fmt.Println("/Register - реєстрація користувача")
-			fmt.Println("/Closing - закриття программи")
-			fmt.Println("/Printing-a-check - створення чека")
-			fmt.Println("/Pay - поповнення балансу")
-			fmt.Println("/List - перегляд списку користувачів")
-			fmt.Println("/Help - допомога по використанню системи")
+			fmt.Println("@testcase - демонстрація тестового кейсу")
+			fmt.Println("@Register - реєстрація користувача")
+			fmt.Println("@Closing - закриття программи")
+			fmt.Println("@Printing-a-check - створення чека")
+			fmt.Println("@Pay - поповнення балансу")
+			fmt.Println("@List - перегляд списку користувачів")
+			fmt.Println("@Help - допомога по використанню системи")
 			fmt.Println("------------------------------------------")
+
+		case "@Allusers":
+			fmt.Printf("Список всіх людей, хто користувався банкоматом:")
+			fmt.Println("Користувач №1:\r\n", userinfo)
+
 		default:
 			fmt.Println("Впишіть команду для початку роботи.")
 		}
