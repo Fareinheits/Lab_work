@@ -14,7 +14,6 @@ type userdata struct {
 }
 
 func main() {
-
 	userinfo := map[int]string{
 
 		1: "\r\nLeon Scott Kennedy\r\n",
@@ -111,7 +110,7 @@ func main() {
 				return
 			}
 
-			l, err := f.WriteString("Інформація про чек:\r\n" + "=====================\r\n" + "Унікальний номер:\r\n")
+			l, err := f.WriteString("Інформація про чек: ATM Data information\r\n" + "=====================\r\n" + "Унікальний номер: 14513515\r\n" + "================\r" + "Час друкування чеку: 15.10/2024 ; 10:40")
 			if err != nil {
 				fmt.Println(err)
 				f.Close()
