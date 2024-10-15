@@ -17,18 +17,18 @@ func main() {
 
 	userinfo := map[int]string{
 
-		1: "Leon Scott Kennedy",
-		2: "Luis Sierra",
-		3: "John Silver",
-		4: "Luis Topez",
+		1: "\r\nLeon Scott Kennedy\r\n",
+		2: "Luis Sierra\r\n",
+		3: "John Silver\r\n",
+		4: "Luis Topez\r\n",
 	}
 
-	balanceinfo := map[string]int{
+	balanceinfo := map[int]string{
 
-		"Leon Scott Kennedy": 6
-		"Luis Sierra":        ,
-		"John Silver":        "John Silver",
-		"Luis Topez":         "Luis Topez",
+		6: "\r\nJ.Silver balance info: 450$\r\n",
+		7: "Luis Tubes balance info: -35$\r\n",
+		8: "Johny Cagni balance info: 50$\r\n",
+		9: "Frank Shorthand balance info: 24$\r\n",
 	}
 
 	var persons []userdata
@@ -172,6 +172,13 @@ func main() {
 		case "@Allusers":
 			fmt.Printf("Список всіх людей, хто користувався банкоматом:")
 			fmt.Println("Користувач №1:\r\n", userinfo)
+
+		case "@Allbalance":
+			fmt.Printf("Список всіх балансів:")
+			fmt.Println("Баланс усіх користувачів:\r\n", balanceinfo)
+			fmt.Println("------------------------------------------")
+
+		case "@Allaccounts":
 
 		default:
 			fmt.Println("Впишіть команду для початку роботи.")
