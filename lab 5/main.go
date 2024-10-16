@@ -13,6 +13,12 @@ type userdata struct {
 	Pin  int
 }
 
+var (
+	ver1 string = "Version 1.0"
+	ver2 string = "Version 2.0"
+	ver3 string = "Version 3.0"
+)
+
 func main() {
 	userinfo := map[int]string{
 
@@ -190,8 +196,16 @@ func main() {
 			fmt.Println("------------------------------------------")
 			fmt.Println("Список усіх користувачів:", userinfo)
 			fmt.Println("------------------------------------------")
+
+		case "@Versions":
+			fmt.Println("Versions of ATM: ", ver1, ver2, ver3)
 		default:
 			fmt.Println("Впишіть команду для початку роботи.")
 		}
 	}
 }
+
+// Check and mate, buddy!!
+// Leon Scott Cennedy "Resident Evil 6"
+
+// Og creator of code - fareinheits
