@@ -35,6 +35,10 @@ func main() {
 	fmt.Println("---------------------")
 	fmt.Println("Simple ATM Simulation")
 	fmt.Println("---------------------")
+	fmt.Println("Currency exchange rate")
+	fmt.Println("---------------------")
+	fmt.Println("1 USD = 41,26 UAH")
+	fmt.Println("1 EUR = 44,94 UAH")
 
 	reader := bufio.NewReader(os.Stdin)
 	for {
@@ -58,10 +62,10 @@ func main() {
 				fmt.Println("кейс /testcase не працює :(")
 			}
 
-		case "/Register":
-			fmt.Println("Вхід в систему...")
+		case "@Register":
+			fmt.Println("Реєстрація в систему...")
 			fmt.Println("---------------------")
-			fmt.Println("Введіть ваші дані для входу:")
+			fmt.Println("Введіть ваші дані для реєстрації:")
 
 			var name string
 			fmt.Print("Введіть номер картки: ")
@@ -125,7 +129,7 @@ func main() {
 
 		case "@Pay":
 			fmt.Println("#:")
-			fmt.Print("Введіть суму для поповнення: ")
+			fmt.Print("Введіть суму для поповнення: $")
 			sumText, err := reader.ReadString('\n')
 			if err != nil {
 				fmt.Println("Вхідна помилка:", err)
@@ -143,7 +147,12 @@ func main() {
 				fmt.Println("Сума повинна бути більше нуля.")
 				continue
 			}
+			fmt.Println("----------------------------")
 			fmt.Println("Поповнення виконано успішно!")
+			fmt.Println("----------------------------")
+
+			fmt.Println("Баланс після поповнення:", sum, "$")
+			fmt.Println("Для видрукування чеку - використайте друкування чеку")
 
 		case "@List":
 			for i, person := range persons {
@@ -178,11 +187,11 @@ func main() {
 			fmt.Println("------------------------------------------")
 
 		case "@Allaccounts":
-
+			fmt.Println("------------------------------------------")
+			fmt.Println("Список усіх користувачів:", userinfo)
+			fmt.Println("------------------------------------------")
 		default:
 			fmt.Println("Впишіть команду для початку роботи.")
 		}
 	}
 }
-
-// Технічне завдання номер 2
